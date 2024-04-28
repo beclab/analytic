@@ -1,0 +1,64 @@
+{
+	"private": true,
+	"name": "anayltic2",
+	"prisma": {
+		"schema": "packages/database/prisma/schema.prisma"
+	},
+	 
+	"scripts": {
+		"postinstall": "lerna bootstrap",
+		"start:dev": "lerna run start:dev --scope @anayltic2/api --stream",
+		"build": "lerna run build",
+		"api:build": "lerna run build --scope @anayltic2/api",
+		"db:migrate:deploy": "lerna run db:migrate:deploy --scope @anayltic2/database",
+		"db:migrate:dev": "pnpm recursive --filter database exec -- pnpm run db:migrate:dev",
+		"studio": "lerna run studio --scope @anayltic2/database",
+		"db:push": "lerna run db:push --scope @anayltic2/database",
+		"db:seed": "lerna run db:seed --scope @anayltic2/database",
+		"dev": "lerna run dev --scope '{@anayltic2/database,@anayltic2/api}' --stream",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"generate": "turbo run generate",
+		"lint": "lerna run lint",
+		"clean": "lerna run clean & rimraf node_modules"
+	},
+	"dependencies": {
+		"@bytetrade/core": "0.3.40",
+		"axios": "^0.21.1"
+	  },
+	  "devDependencies": {
+		  "@types/node": "^12.20.21",
+		  "@typescript-eslint/eslint-plugin": "5.52.0",
+		  "@typescript-eslint/parser": "5.52.0",
+		  "eslint": "^8.10.0",
+		  "eslint-config-prettier": "8.6.0",
+		  "eslint-plugin-prettier": "4.2.1",
+		  "eslint-plugin-vue": "^9.0.0",
+		  "husky": "8.0.3",
+		  "lerna": "5.1.8",
+		  "ts-node": "10.0.0",
+		  "typescript": "4.4.3",
+		  "lint-staged": "13.1.2",
+		  "prettier": "^2.5.1",
+		  "rimraf": "^5.0.1"
+	  },
+	  "browserslist": [
+		  "last 10 Chrome versions",
+		  "last 10 Firefox versions",
+		  "last 4 Edge versions",
+		  "last 7 Safari versions",
+		  "last 8 Android versions",
+		  "last 8 ChromeAndroid versions",
+		  "last 8 FirefoxAndroid versions",
+		  "last 10 iOS versions",
+		  "last 5 Opera versions"
+	  ],
+	  "engines": {
+		  "node": ">= 12.22.1",
+		  "npm": ">= 6.13.4",
+		  "yarn": ">= 1.21.1"
+	  },
+	  "lint-staged": {
+		  "*.{js,ts,vue}": "eslint --cache --fix",
+		  "*.{gitignore,js,ts,vue,css,md}": "prettier --write"
+	  }
+}
