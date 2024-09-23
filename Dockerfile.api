@@ -43,6 +43,7 @@ RUN npm config set ignore-scripts true && lerna bootstrap -- --production
 # COPY --from=server_dist /server_dist/packages/database/node_modules/ ./packages/database/node_modules/
 COPY --from=server_dist /server_dist/packages/database/node_modules/.prisma  ./packages/database/node_modules/.prisma
 
+RUN npm run generate
 
 EXPOSE 3010
 CMD ["sh", "-c", "npm run db:migrate:deploy && node packages/api/dist/main.js"]

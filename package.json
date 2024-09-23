@@ -10,6 +10,7 @@
 		"start:dev": "lerna run start:dev --scope @anayltic2/api --stream",
 		"build": "lerna run build",
 		"api:build": "lerna run build --scope @anayltic2/api",
+		"generate": "lerna run generate --scope @anayltic2/database",
 		"db:migrate:deploy": "lerna run db:migrate:deploy --scope @anayltic2/database",
 		"db:migrate:dev": "pnpm recursive --filter database exec -- pnpm run db:migrate:dev",
 		"studio": "lerna run studio --scope @anayltic2/database",
@@ -17,7 +18,6 @@
 		"db:seed": "lerna run db:seed --scope @anayltic2/database",
 		"dev": "lerna run dev --scope '{@anayltic2/database,@anayltic2/api}' --stream",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
-		"generate": "turbo run generate",
 		"lint": "lerna run lint",
 		"clean": "lerna run clean & rimraf node_modules"
 	},
