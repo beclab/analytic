@@ -1,6 +1,6 @@
 {
 	"private": true,
-	"name": "analytic",
+	"name": "analytics",
 	"scripts": {
 		"build": "nest build --webpack --webpackPath=./webpack.config",
         "setup": "npm i",
