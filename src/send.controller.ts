@@ -85,7 +85,11 @@ export class SendController {
           const addr = ipaddr.parse(clientIp);
           const range = ipaddr.parseCIDR(ip);
 
-          if (addr.kind() === range[0].kind() && addr.match(range)) return true;
+          if (
+            addr.kind() === range[0].kind() &&
+            addr.match([range[0], range[1]])
+          )
+            return true;
         }
 
         return false;

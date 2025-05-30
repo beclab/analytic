@@ -1,12 +1,6 @@
 import redis from '@umami/redis-client';
 import { Injectable, OnModuleInit, Logger } from '@nestjs/common';
-import {
-  PrismaClient,
-  Prisma,
-  Website,
-  Session,
-  User,
-} from '@anayltic2/database';
+import { PrismaClient, Prisma, Website, Session, User } from '@prisma/client';
 import {
   toUuid,
   parseFilters,

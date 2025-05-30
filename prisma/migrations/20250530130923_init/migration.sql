@@ -37,7 +37,7 @@ CREATE TABLE "website" (
     "domain" VARCHAR(500),
     "share_id" VARCHAR(50),
     "reset_at" TIMESTAMPTZ(6),
-    "user_id" UUID,
+    "user_id" VARCHAR(255),
     "created_at" TIMESTAMPTZ(6) DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMPTZ(6),
     "deleted_at" TIMESTAMPTZ(6),
@@ -93,7 +93,7 @@ CREATE TABLE "team" (
 CREATE TABLE "team_user" (
     "team_user_id" UUID NOT NULL,
     "team_id" UUID NOT NULL,
-    "user_id" UUID NOT NULL,
+    "user_id" VARCHAR(255) NOT NULL,
     "role" VARCHAR(50) NOT NULL,
     "created_at" TIMESTAMPTZ(6) DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMPTZ(6),
