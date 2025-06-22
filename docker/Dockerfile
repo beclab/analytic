@@ -28,10 +28,12 @@ WORKDIR /settings-server
 
 COPY --from=server_dist /server_dist/dist/node_modules ./node_modules
 COPY --from=server_dist /server_dist/dist/package.json ./package.json
+
+RUN npm install
+
 COPY --from=server_dist /server_dist/dist/main.js ./main.js
 COPY --from=server_dist /server_dist/dist/prisma ./prisma
 
-RUN npm install
 
 CMD ["sh", "-c", "npx prisma migrate deploy && npm run server"]
 
